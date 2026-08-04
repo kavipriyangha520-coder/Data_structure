@@ -1,0 +1,57 @@
+class Node: def init(self, data): self.data = data self.next = None
+
+n1 = Node("Aaradha Yaazhai") n2 = Node("Melliname") n3 = Node("Manamagalin Sathiyam") n4 = Node("Neelum Vaanam") n5 = Node("Amma I Love You") n6 = Node("Un Paarvai")
+
+n1.next = n2 n2.next = n3 n3.next = n4 n4.next = n5 n5.next = n6
+
+head = n1
+
+def display(head): temp = head while temp is not None: print(temp.data) temp = temp.next print("None")
+
+print("Original Linked List") display(head)
+
+Insertion at Beginning
+new_node = Node("Nee Paartha") new_node.next = head head = new_node
+
+print("Insertion at Beginning") display(head)
+
+Insertion at Middle
+new_node1 = Node("Unakenna Venum") temp = head
+
+while temp.data != "Manamagalin Sathiyam": temp = temp.next
+
+new_node1.next = temp.next temp.next = new_node1
+
+print("Insertion at Middle") display(head)
+
+Insertion at End
+new_node2 = Node("Kadhalada") temp = head
+
+while temp.next: temp = temp.next
+
+temp.next = new_node2
+
+print("Insertion at End") display(head)
+
+Deletion at Beginning
+head = head.next
+
+print("Deletion at Beginning") display(head)
+
+Deletion at Middle
+temp = head
+
+while temp.next.data != "Unakenna Venum": temp = temp.next
+
+temp.next = temp.next.next
+
+print("Deletion at Middle") display(head)
+
+Deletion at End
+temp = head
+
+while temp.next.next: temp = temp.next
+
+temp.next = None
+
+print("Deletion at End") display(head)
